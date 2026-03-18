@@ -27,11 +27,12 @@ const About: React.FC<AboutProps> = ({ isDark = true }) => {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-amber-500 to-yellow-600 rounded-2xl transform rotate-3 blur-sm opacity-30"></div>
-            <img
-              src="https://iili.io/ft23weS.jpg"
-              alt="Gian Samonte"
-              className={`relative rounded-2xl shadow-2xl transition-all duration-500 w-full object-cover h-[500px] border ${isDark ? 'border-neutral-800 grayscale hover:grayscale-0' : 'border-neutral-200'}`}
-            />
+                          <img 
+                src=\"https://iili.io/ft23weS.jpg\" 
+                alt=\"Gian Samonte\" 
+                className={elative rounded-2xl shadow-2xl transition-all duration-500 w-full object-cover h-[500px] border \}
+              />
+            </div>
           </motion.div>
 
           {/* Content Column */}
