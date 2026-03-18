@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Download, Sparkles } from 'lucide-react';
+import { ArrowDown, Download, Sparkles, Moon, Sun } from 'lucide-react';
 import TextType from './TextType';
 
 interface HeroProps {
+  toggleTheme?: () => void;
   isDark?: boolean;
 }
 
@@ -128,6 +129,39 @@ const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
                 onTypingComplete={() => setShowStaticDescription(true)}
               />
             )}
+          </div>
+
+          <div className=\"mb-8\">
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={p-4 rounded-2xl shadow-lg backdrop-blur-md border transition-all duration-300 flex items-center gap-3 mx-auto \}
+              aria-label=\"Toggle Theme\"
+            >
+              <AnimatePresence mode=\"wait\" initial={false}>
+                <motion.div
+                  key={isDark ? 'dark' : 'light'}
+                  initial={{ y: -10, opacity: 0, rotate: -45 }}
+                  animate={{ y: 0, opacity: 1, rotate: 0 }}
+                  exit={{ y: 10, opacity: 0, rotate: 45 }}
+                  transition={{ duration: 0.2 }}
+                  className=\"flex items-center gap-2\"
+                >
+                  {isDark ? (
+                    <>
+                      <Moon className=\"w-5 h-5 fill-yellow-400\" />
+                      <span className=\"text-xs font-bold uppercase tracking-widest text-neutral-400\">Switch to Light</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sun className=\"w-5 h-5 fill-amber-600\" />
+                      <span className=\"text-xs font-bold uppercase tracking-widest text-neutral-800\">Switch to Dark</span>
+                    </>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </motion.button>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

@@ -28,7 +28,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ isDark = true }) => {
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           viewport={{ once: false }}
            className="text-center mb-16"
         >
           <h2 className={`text-5xl font-black mb-6 tracking-tighter ${isDark ? 'text-white' : 'text-neutral-900'}`}>

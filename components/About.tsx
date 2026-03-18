@@ -22,7 +22,7 @@ const About: React.FC<AboutProps> = ({ isDark = true }) => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
@@ -38,7 +38,7 @@ const About: React.FC<AboutProps> = ({ isDark = true }) => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
             <h2 className={`text-5xl font-bold mb-8 tracking-tighter ${headingColor}`}>About Me</h2>

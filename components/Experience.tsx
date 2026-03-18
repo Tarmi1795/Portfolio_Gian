@@ -20,7 +20,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDark = true }) => {
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           viewport={{ once: false }}
            className="mb-16 text-center"
         >
           <h2 className={`text-5xl font-bold mb-6 tracking-tighter ${headingColor}`}>
@@ -40,7 +40,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDark = true }) => {
               key={exp.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: index * 0.1 }}
               className={`relative flex flex-col md:flex-row gap-8 mb-16 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
             >

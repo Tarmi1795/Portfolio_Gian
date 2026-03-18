@@ -98,7 +98,7 @@ const Contact: React.FC<ContactProps> = ({ isDark = true }) => {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
             <h2 className={`text-5xl md:text-6xl font-black mb-8 tracking-tighter ${isDark ? 'text-white' : 'text-neutral-900'}`}>
@@ -133,7 +133,7 @@ const Contact: React.FC<ContactProps> = ({ isDark = true }) => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className={`p-8 md:p-10 rounded-[2.5rem] border transition-all duration-500 backdrop-blur-2xl ${isDark ? 'bg-neutral-900/50 border-neutral-800/50 shadow-2xl' : 'bg-white/80 border-neutral-200 shadow-2xl shadow-neutral-200/50'}`}
           >

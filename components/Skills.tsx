@@ -13,7 +13,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark = true }) => {
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           viewport={{ once: false }}
            className="text-center mb-20"
         >
           <h2 className={`text-4xl md:text-5xl font-black mb-6 tracking-tighter ${isDark ? 'text-white' : 'text-neutral-900'}`}>
@@ -30,7 +30,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark = true }) => {
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10 }}
               className={`p-10 rounded-[2.5rem] border transition-all duration-500 group ${

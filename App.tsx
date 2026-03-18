@@ -72,29 +72,7 @@ function App() {
     <div className={`min-h-screen transition-colors duration-500 overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 ${isDark ? 'bg-neutral-950 text-neutral-200' : 'bg-[#f8f7f3] text-neutral-900'}`}>
       
       {/* Theme Toggle Button - Fixed Upper Right */}
-      <motion.button
-        onClick={toggleTheme}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className={`fixed top-6 right-6 z-[60] p-3 rounded-full shadow-lg backdrop-blur-md border transition-all duration-300 ${
-          isDark 
-          ? 'bg-neutral-900/80 border-neutral-800 text-yellow-400 hover:text-yellow-200' 
-          : 'bg-white/80 border-neutral-200 text-amber-600 hover:text-amber-800'
-        }`}
-        aria-label="Toggle Theme"
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={isDark ? 'dark' : 'light'}
-            initial={{ y: -20, opacity: 0, rotate: -90 }}
-            animate={{ y: 0, opacity: 1, rotate: 0 }}
-            exit={{ y: 20, opacity: 0, rotate: 90 }}
-            transition={{ duration: 0.2 }}
-          >
-            {isDark ? <Moon className="w-6 h-6 fill-yellow-400" /> : <Sun className="w-6 h-6 fill-amber-600" />}
-          </motion.div>
-        </AnimatePresence>
-      </motion.button>
+      
 
       <Navbar isDark={isDark} />
 
@@ -109,7 +87,7 @@ function App() {
       />
 
       <main>
-        <Hero isDark={isDark} />
+        <Hero isDark={isDark} toggleTheme={toggleTheme} />
         <About isDark={isDark} />
         <Skills isDark={isDark} />
         <Experience isDark={isDark} />
