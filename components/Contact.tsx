@@ -73,9 +73,10 @@ const Contact: React.FC = () => {
               Ready to elevate your digital presence? I'm available for innovative projects and strategic collaborations.    
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {[
                 { icon: WhatsAppIcon, label: "WhatsApp", value: CONTACT_INFO.phone, color: "text-[#25D366]" },
+                { icon: Phone, label: "Direct Call", value: CONTACT_INFO.phone, color: "text-amber-500" },
                 { icon: Mail, label: "Inbox", value: CONTACT_INFO.email, color: "text-yellow-500" },
                 { icon: MapPin, label: "Base", value: CONTACT_INFO.location, color: "text-orange-500" }
               ].map((item, i) => (
@@ -88,7 +89,7 @@ const Contact: React.FC = () => {
                     <item.icon className={`w-6 h-6 ${item.color}`} />
                   </div>
                   <div>
-                    <p className="text-xs text-neutral-500 uppercase tracking-[0.2em] font-bold mb-1">{item.label}</p>       
+                    <p className="text-xs text-neutral-500 uppercase tracking-[0.2em] font-bold mb-0.5">{item.label}</p>       
                     <p className="text-lg text-neutral-200 font-medium">{item.value}</p>
                   </div>
                 </motion.div>
