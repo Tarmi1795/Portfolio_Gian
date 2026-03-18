@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ isDark = true, toggleTheme }) => {
   const [showStaticDescription, setShowStaticDescription] = useState(false);
 
   return (
-    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 ${isDark ? 'bg-neutral-950' : 'bg-[#f8f7f3]'}`}>
+    <section id="home" className={`relative min-h-screen flex items-center justify-center pt-24 md:pt-0 overflow-hidden transition-colors duration-500 ${isDark ? 'bg-neutral-950' : 'bg-[#f8f7f3]'}`}>
       {/* Abstract Background Animation */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -70,10 +70,6 @@ const Hero: React.FC<HeroProps> = ({ isDark = true, toggleTheme }) => {
               cursorClassName="text-amber-500 font-bold"
             />
           </div>
-
-          <h1 className={`text-6xl md:text-8xl font-black mb-8 tracking-tighter bg-clip-text text-transparent transition-all duration-700 ${isDark ? 'bg-gradient-to-b from-amber-100 via-amber-300 to-amber-600' : 'bg-gradient-to-b from-neutral-800 via-amber-700 to-amber-900'}`}>
-            GIAN SAMONTE
-          </h1>
 
           <div className="min-h-[96px] md:min-h-[80px] mb-12 flex items-start justify-center">
             {showStaticDescription ? (
