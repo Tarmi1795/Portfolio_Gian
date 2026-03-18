@@ -11,7 +11,7 @@ const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
   const [showStaticDescription, setShowStaticDescription] = useState(false);
 
   return (
-    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 ${isDark ? 'bg-neutral-950' : 'bg-[#f8f7f3]'}`}>    
+    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 ${isDark ? 'bg-neutral-950' : 'bg-[#f8f7f3]'}`}>
       {/* Abstract Background Animation */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -43,32 +43,32 @@ const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
           {/* Animated Hero Image Placeholder */}
           <div className="mb-12 relative inline-block">
             <motion.div
-              animate={{ 
+              animate={{
                 y: [0, -15, 0],
-                rotate: [0, 2, 0, -2, 0] 
+                rotate: [0, 2, 0, -2, 0]
               }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
               className="relative z-10 w-32 h-32 md:w-40 md:h-40 mx-auto"
             >
               {/* Outer Glow Ring */}
               <div className={`absolute inset-0 rounded-[2rem] blur-2xl animate-pulse ${isDark ? 'bg-amber-500/30' : 'bg-amber-500/40'}`} />
-              
+
               {/* Main Container */}
               <div className={`relative h-full w-full rounded-[2.5rem] border-2 flex items-center justify-center overflow-hidden backdrop-blur-sm transition-all duration-500 ${isDark ? 'bg-neutral-900/80 border-amber-500/50' : 'bg-white/80 border-amber-500/30 shadow-xl'}`}>
                 {/* Animated Gradient Background */}
-                <motion.div 
-                  animate={{ 
+                <motion.div
+                  animate={{
                     rotate: 360,
-                    scale: [1, 1.2, 1] 
+                    scale: [1, 1.2, 1]
                   }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className={`absolute inset-0 opacity-20 ${isDark ? 'bg-gradient-to-tr from-amber-600 to-transparent' : 'bg-gradient-to-tr from-amber-400 to-transparent'}`} 
+                  className={`absolute inset-0 opacity-20 ${isDark ? 'bg-gradient-to-tr from-amber-600 to-transparent' : 'bg-gradient-to-tr from-amber-400 to-transparent'}`}
                 />
-                
+
                 {/* Content Placeholder Icon */}
                 <div className="relative z-20 flex flex-col items-center gap-2">
                   <Sparkles className={`w-10 h-10 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />
@@ -82,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
             </motion.div>
 
             {/* Orbiting Elements */}
-            <motion.div 
+            <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 -z-10"
@@ -93,7 +93,7 @@ const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
 
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-md mb-6 min-h-[42px] transition-all duration-500 ${isDark ? 'bg-amber-500/5 border-amber-500/20' : 'bg-white/60 border-amber-500/10 shadow-sm'}`}>
             <TextType
-              text={["Polymath & Multimedia Specialist", "Creative Director", "Generative AI Expert", "Visual Storyteller"]} 
+              text={["Polymath & Multimedia Specialist", "Creative Director", "Generative AI Expert", "Visual Storyteller"]}
               typingSpeed={50}
               deletingSpeed={30}
               pauseDuration={2000}
@@ -147,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
               className={`px-10 py-5 bg-transparent border-2 rounded-2xl font-bold transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 group relative overflow-hidden ${isDark ? 'border-amber-500/30 text-amber-100 hover:bg-amber-900/20' : 'border-amber-500/50 text-amber-900 hover:bg-amber-50'}`}
             >
               <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-              <span>Get Resume</span>
+              <span>Download Gian's Resume</span>
             </motion.a>
           </div>
         </motion.div>

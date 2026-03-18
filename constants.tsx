@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Experience, SkillCategory, Project, ContactInfo } from './types';
-import { Palette, Cpu, BarChart3, Video, Brain, Workflow } from 'lucide-react';
+import { Orbit, Spline, Workflow, Boxes, Command, Shapes, Cpu, Sparkles, Activity } from 'lucide-react';
 
 export const CONTACT_INFO: ContactInfo = {
   phone: "+974 5585 5221",
@@ -76,17 +76,17 @@ export const SKILLS: SkillCategory[] = [
   {
     title: "AI Generation",
     skills: ["Sora", "VEO", "Gemini Pro", "Midjourney", "Flux", "GPT Image 1.5", "Nano Banana", "Higgsfield"],
-    icon: <Brain className="w-6 h-6 text-amber-400" />
+    icon: <Orbit className="w-8 h-8 text-amber-400 animate-[spin_10s_linear_infinite]" />
   },
   {
     title: "Creative Suite",
     skills: ["Photoshop", "Premiere Pro", "CapCut", "Illustrator", "After Effects", "Web Layout Design"],
-    icon: <Palette className="w-6 h-6 text-amber-500" />
+    icon: <Spline className="w-8 h-8 text-amber-500" />
   },
   {
     title: "Data & Workflow",
     skills: ["Data Visualization", "Financial Infographics", "Google Flow", "Python Automation", "Advanced Excel"],
-    icon: <BarChart3 className="w-6 h-6 text-yellow-500" />
+    icon: <Command className="w-8 h-8 text-yellow-500" />
   }
 ];
 
