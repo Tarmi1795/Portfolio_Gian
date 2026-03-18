@@ -21,7 +21,7 @@ const About: React.FC<AboutProps> = ({ isDark = true }) => {
           {/* Image/Visual Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }} whileHover={{ scale: 1.02 }}
             viewport={{ once: false }}
             transition={{ duration: 0.8 }}
             className="relative"
@@ -37,7 +37,7 @@ const About: React.FC<AboutProps> = ({ isDark = true }) => {
           {/* Content Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }} whileHover={{ scale: 1.02 }}
             viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
