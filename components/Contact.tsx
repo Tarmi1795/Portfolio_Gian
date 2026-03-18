@@ -51,6 +51,37 @@ const Contact: React.FC = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const contactLinks = [
+    { 
+      icon: WhatsAppIcon, 
+      label: "WhatsApp", 
+      value: CONTACT_INFO.phone, 
+      color: "text-[#25D366]",
+      href: `https://wa.me/${CONTACT_INFO.phone.replace(/[^0-9]/g, '')}`
+    },
+    { 
+      icon: Phone, 
+      label: "Direct Call", 
+      value: CONTACT_INFO.phone, 
+      color: "text-amber-500",
+      href: `tel:${CONTACT_INFO.phone.replace(/[^0-9+]/g, '')}`
+    },
+    { 
+      icon: Mail, 
+      label: "Inbox", 
+      value: CONTACT_INFO.email, 
+      color: "text-yellow-500",
+      href: `mailto:${CONTACT_INFO.email}`
+    },
+    { 
+      icon: MapPin, 
+      label: "Base", 
+      value: CONTACT_INFO.location, 
+      color: "text-orange-500",
+      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.location)}`
+    }
+  ];
+
   return (
     <section id="contact" className="py-24 bg-neutral-950 relative overflow-hidden">
       {/* Animated background blobs */}
@@ -74,25 +105,23 @@ const Contact: React.FC = () => {
             </p>
 
             <div className="space-y-6">
-              {[
-                { icon: WhatsAppIcon, label: "WhatsApp", value: CONTACT_INFO.phone, color: "text-[#25D366]" },
-                { icon: Phone, label: "Direct Call", value: CONTACT_INFO.phone, color: "text-amber-500" },
-                { icon: Mail, label: "Inbox", value: CONTACT_INFO.email, color: "text-yellow-500" },
-                { icon: MapPin, label: "Base", value: CONTACT_INFO.location, color: "text-orange-500" }
-              ].map((item, i) => (
-                <motion.div
+              {contactLinks.map((item, i) => (
+                <motion.a
                   key={i}
+                  href={item.href}
+                  target={item.label === "Base" || item.label === "WhatsApp" ? "_blank" : undefined}
+                  rel={item.label === "Base" || item.label === "WhatsApp" ? "noopener noreferrer" : undefined}
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-6 group"
+                  className="flex items-center gap-6 group cursor-pointer w-fit"
                 >
                   <div className="w-14 h-14 bg-neutral-900 border border-neutral-800 rounded-2xl flex items-center justify-center group-hover:border-amber-500/50 transition-all duration-500 shadow-xl">
                     <item.icon className={`w-6 h-6 ${item.color}`} />
                   </div>
                   <div>
                     <p className="text-xs text-neutral-500 uppercase tracking-[0.2em] font-bold mb-0.5">{item.label}</p>       
-                    <p className="text-lg text-neutral-200 font-medium">{item.value}</p>
+                    <p className="text-lg text-neutral-200 font-medium group-hover:text-amber-400 transition-colors">{item.value}</p>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </motion.div>
