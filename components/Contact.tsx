@@ -14,7 +14,11 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  isDark?: boolean;
+}
+
+const Contact: React.FC<ContactProps> = ({ isDark = true }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -83,10 +87,10 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-neutral-950 relative overflow-hidden">
+    <section id="contact" className={`py-24 relative overflow-hidden transition-colors duration-500 ${isDark ? 'bg-neutral-950' : 'bg-[#f8f7f3]'}`}>
       {/* Animated background blobs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] animate-pulse"></div>    
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-yellow-600/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className={`absolute top-1/4 -left-20 w-96 h-96 rounded-full blur-[120px] animate-pulse ${isDark ? 'bg-amber-500/10' : 'bg-amber-500/5'}`}></div>    
+      <div className={`absolute bottom-1/4 -right-20 w-96 h-96 rounded-full blur-[120px] animate-pulse ${isDark ? 'bg-yellow-600/10' : 'bg-yellow-600/5'}`} style={{ animationDelay: '2s' }}></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -97,10 +101,10 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter">
-              LETS <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600">CONNECT.</span>
+            <h2 className={`text-5xl md:text-6xl font-black mb-8 tracking-tighter ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+              LETS <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">CONNECT.</span>
             </h2>
-            <p className="text-xl text-neutral-400 mb-12 leading-relaxed max-w-md">
+            <p className={`text-xl mb-12 leading-relaxed max-w-md font-light ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>
               Ready to elevate your digital presence? I'm available for innovative projects and strategic collaborations.    
             </p>
 
@@ -114,12 +118,12 @@ const Contact: React.FC = () => {
                   whileHover={{ x: 10 }}
                   className="flex items-center gap-6 group cursor-pointer w-fit"
                 >
-                  <div className="w-14 h-14 bg-neutral-900 border border-neutral-800 rounded-2xl flex items-center justify-center group-hover:border-amber-500/50 transition-all duration-500 shadow-xl">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-xl border ${isDark ? 'bg-neutral-900 border-neutral-800 group-hover:border-amber-500/50' : 'bg-white border-neutral-200 group-hover:border-amber-500/50 shadow-neutral-200/40'}`}>
                     <item.icon className={`w-6 h-6 ${item.color}`} />
                   </div>
                   <div>
                     <p className="text-xs text-neutral-500 uppercase tracking-[0.2em] font-bold mb-0.5">{item.label}</p>       
-                    <p className="text-lg text-neutral-200 font-medium group-hover:text-amber-400 transition-colors">{item.value}</p>
+                    <p className={`text-lg font-bold transition-colors ${isDark ? 'text-neutral-200 group-hover:text-amber-400' : 'text-neutral-800 group-hover:text-amber-600'}`}>{item.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -131,7 +135,7 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-neutral-900/50 backdrop-blur-2xl p-8 md:p-10 rounded-[2.5rem] border border-neutral-800/50 shadow-2xl"
+            className={`p-8 md:p-10 rounded-[2.5rem] border transition-all duration-500 backdrop-blur-2xl ${isDark ? 'bg-neutral-900/50 border-neutral-800/50 shadow-2xl' : 'bg-white/80 border-neutral-200 shadow-2xl shadow-neutral-200/50'}`}
           >
             <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
               <div className="relative group">
@@ -144,7 +148,7 @@ const Contact: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full bg-neutral-800/50 border-2 border-transparent rounded-2xl p-4 text-white placeholder-transparent focus:outline-none focus:border-amber-500/50 focus:bg-neutral-800 transition-all duration-300"
+                    className={`w-full border-2 border-transparent rounded-2xl p-4 placeholder-transparent focus:outline-none focus:border-amber-500/50 transition-all duration-300 ${isDark ? 'bg-neutral-800/50 text-white focus:bg-neutral-800' : 'bg-neutral-100 text-neutral-900 focus:bg-white'}`}
                     required
                   />
                   <AnimatePresence mode="wait">
@@ -154,7 +158,7 @@ const Contact: React.FC = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 0.4, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute left-4 top-4 text-neutral-400 pointer-events-none"
+                        className={`absolute left-4 top-4 pointer-events-none ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}
                       >
                         {namePlaceholders[placeholderIndex]}
                       </motion.span>
@@ -173,7 +177,7 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full bg-neutral-800/50 border-2 border-transparent rounded-2xl p-4 text-white placeholder-transparent focus:outline-none focus:border-amber-500/50 focus:bg-neutral-800 transition-all duration-300"
+                    className={`w-full border-2 border-transparent rounded-2xl p-4 placeholder-transparent focus:outline-none focus:border-amber-500/50 transition-all duration-300 ${isDark ? 'bg-neutral-800/50 text-white focus:bg-neutral-800' : 'bg-neutral-100 text-neutral-900 focus:bg-white'}`}
                   />
                   <AnimatePresence mode="wait">
                     {!formData.email && (
@@ -182,7 +186,7 @@ const Contact: React.FC = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 0.4, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute left-4 top-4 text-neutral-400 pointer-events-none"
+                        className={`absolute left-4 top-4 pointer-events-none ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}
                       >
                         {emailPlaceholders[placeholderIndex]}
                       </motion.span>
@@ -200,7 +204,7 @@ const Contact: React.FC = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full bg-neutral-800/50 border-2 border-transparent rounded-2xl p-4 text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500/50 focus:bg-neutral-800 transition-all duration-300 resize-none"
+                  className={`w-full border-2 border-transparent rounded-2xl p-4 focus:outline-none focus:border-amber-500/50 transition-all duration-300 resize-none ${isDark ? 'bg-neutral-800/50 text-white focus:bg-neutral-800' : 'bg-neutral-100 text-neutral-900 focus:bg-white'} ${!isDark ? 'placeholder-neutral-400' : 'placeholder-neutral-600'}`}
                   placeholder="Tell me about your project..."
                   required
                 ></textarea>
@@ -218,7 +222,7 @@ const Contact: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="mt-32 pt-12 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center gap-6 text-neutral-600 text-sm font-medium">
+        <div className={`mt-32 pt-12 border-t flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-medium transition-all duration-500 ${isDark ? 'border-neutral-900/50 text-neutral-600' : 'border-neutral-200 text-neutral-500'}`}>
           <p>© {new Date().getFullYear()} GIAN SAMONTE. DESIGNED FOR THE FUTURE.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-amber-500 transition-colors uppercase tracking-widest">LinkedIn</a>

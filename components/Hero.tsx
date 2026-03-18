@@ -1,33 +1,36 @@
-
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDown, Download } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowDown, Download, Sparkles } from 'lucide-react';
 import TextType from './TextType';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  isDark?: boolean;
+}
+
+const Hero: React.FC<HeroProps> = ({ isDark = true }) => {
   const [showStaticDescription, setShowStaticDescription] = useState(false);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-950">
+    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 ${isDark ? 'bg-neutral-950' : 'bg-[#f8f7f3]'}`}>    
       {/* Abstract Background Animation */}
       <div className="absolute inset-0 z-0">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1],
+            opacity: isDark ? [0.1, 0.2, 0.1] : [0.05, 0.15, 0.05],
             rotate: [0, 90, 0]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/2 -left-1/2 w-[100vw] h-[100vw] bg-amber-700/20 rounded-full blur-[100px]"
+          className={`absolute -top-1/2 -left-1/2 w-[100vw] h-[100vw] rounded-full blur-[100px] ${isDark ? 'bg-amber-700/20' : 'bg-amber-500/10'}`}
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.2, 0.1],
+            opacity: isDark ? [0.1, 0.2, 0.1] : [0.05, 0.15, 0.05],
             rotate: [0, -90, 0]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1/2 -right-1/2 w-[100vw] h-[100vw] bg-yellow-900/20 rounded-full blur-[100px]"
+          className={`absolute -bottom-1/2 -right-1/2 w-[100vw] h-[100vw] rounded-full blur-[100px] ${isDark ? 'bg-yellow-900/20' : 'bg-yellow-600/10'}`}
         />
       </div>
 
@@ -37,36 +40,87 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/5 border border-amber-500/20 backdrop-blur-md mb-6 min-h-[42px]">
-            <TextType 
-              text={["Polymath & Multimedia Specialist", "Creative Director", "Generative AI Expert", "Visual Storyteller"]}
+          {/* Animated Hero Image Placeholder */}
+          <div className="mb-12 relative inline-block">
+            <motion.div
+              animate={{ 
+                y: [0, -15, 0],
+                rotate: [0, 2, 0, -2, 0] 
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="relative z-10 w-32 h-32 md:w-40 md:h-40 mx-auto"
+            >
+              {/* Outer Glow Ring */}
+              <div className={`absolute inset-0 rounded-[2rem] blur-2xl animate-pulse ${isDark ? 'bg-amber-500/30' : 'bg-amber-500/40'}`} />
+              
+              {/* Main Container */}
+              <div className={`relative h-full w-full rounded-[2.5rem] border-2 flex items-center justify-center overflow-hidden backdrop-blur-sm transition-all duration-500 ${isDark ? 'bg-neutral-900/80 border-amber-500/50' : 'bg-white/80 border-amber-500/30 shadow-xl'}`}>
+                {/* Animated Gradient Background */}
+                <motion.div 
+                  animate={{ 
+                    rotate: 360,
+                    scale: [1, 1.2, 1] 
+                  }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                  className={`absolute inset-0 opacity-20 ${isDark ? 'bg-gradient-to-tr from-amber-600 to-transparent' : 'bg-gradient-to-tr from-amber-400 to-transparent'}`} 
+                />
+                
+                {/* Content Placeholder Icon */}
+                <div className="relative z-20 flex flex-col items-center gap-2">
+                  <Sparkles className={`w-10 h-10 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />
+                  <span className={`text-[10px] font-bold uppercase tracking-widest ${isDark ? 'text-amber-200/40' : 'text-amber-800/40'}`}>Profile</span>
+                </div>
+
+                {/* Corner Accents */}
+                <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-amber-500/40" />
+                <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-amber-500/40" />
+              </div>
+            </motion.div>
+
+            {/* Orbiting Elements */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 -z-10"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-amber-500/20 border border-amber-500/40 rounded-lg backdrop-blur-md" />
+            </motion.div>
+          </div>
+
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-md mb-6 min-h-[42px] transition-all duration-500 ${isDark ? 'bg-amber-500/5 border-amber-500/20' : 'bg-white/60 border-amber-500/10 shadow-sm'}`}>
+            <TextType
+              text={["Polymath & Multimedia Specialist", "Creative Director", "Generative AI Expert", "Visual Storyteller"]} 
               typingSpeed={50}
               deletingSpeed={30}
               pauseDuration={2000}
               cursorCharacter="_"
-              className="text-sm text-amber-200/80 tracking-wider uppercase font-medium"
-              cursorClassName="text-amber-400 font-bold"
+              className={`text-sm tracking-wider uppercase font-medium ${isDark ? 'text-amber-200/80' : 'text-amber-800'}`}
+              cursorClassName="text-amber-500 font-bold"
             />
           </div>
-          
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-amber-100 via-amber-300 to-amber-600">
+
+          <h1 className={`text-6xl md:text-8xl font-black mb-8 tracking-tighter bg-clip-text text-transparent transition-all duration-700 ${isDark ? 'bg-gradient-to-b from-amber-100 via-amber-300 to-amber-600' : 'bg-gradient-to-b from-neutral-800 via-amber-700 to-amber-900'}`}>
             GIAN SAMONTE
           </h1>
-          
-          <div className="min-h-[96px] md:min-h-[80px] mb-8 flex items-start justify-center">
+
+          <div className="min-h-[96px] md:min-h-[80px] mb-12 flex items-start justify-center">
             {showStaticDescription ? (
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl md:text-2xl text-neutral-400 max-w-2xl mx-auto font-light"
+                className={`text-xl md:text-2xl max-w-2xl mx-auto font-light leading-relaxed ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}
               >
-                Blending traditional <span className="text-amber-400 font-semibold">Graphic Design</span> with advanced <span className="text-yellow-200 font-semibold">Generative AI</span> workflows to tell compelling visual stories.
+                Blending traditional <span className="text-amber-500 font-bold">Graphic Design</span> with advanced <span className="text-amber-600 font-bold">Generative AI</span> workflows to tell compelling visual stories.
               </motion.p>
             ) : (
               <TextType
                 as="p"
-                className="text-xl md:text-2xl text-neutral-400 max-w-2xl mx-auto font-light"
+                className={`text-xl md:text-2xl max-w-2xl mx-auto font-light leading-relaxed ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}
                 text={["Blending traditional Graphic Design with advanced Generative AI workflows to tell compelling visual stories."]}
                 typingSpeed={30}
                 cursorCharacter="|"
@@ -76,29 +130,30 @@ const Hero: React.FC = () => {
             )}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <motion.a
               href="#portfolio"
-              className="px-8 py-4 bg-amber-500 text-black rounded-full font-bold hover:bg-amber-400 transition-colors duration-300 shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 bg-amber-500 text-black rounded-2xl font-black uppercase tracking-widest shadow-[0_20px_40px_-15px_rgba(245,158,11,0.5)] hover:bg-amber-400 transition-all duration-300"
             >
-              View Work
-            </a>
-            
-            <motion.a 
+              View Projects
+            </motion.a>
+
+            <motion.a
               href="https://drive.google.com/uc?export=download&id=1DSCEw1byZAkmpQcdgenGhsOZfcjd-He1"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-transparent border border-amber-500/30 text-amber-100 rounded-full font-medium hover:bg-amber-950/50 hover:border-amber-500/60 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 group relative overflow-hidden"
+              className={`px-10 py-5 bg-transparent border-2 rounded-2xl font-bold transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 group relative overflow-hidden ${isDark ? 'border-amber-500/30 text-amber-100 hover:bg-amber-900/20' : 'border-amber-500/50 text-amber-900 hover:bg-amber-50'}`}
             >
-              <div className="absolute inset-0 bg-amber-500/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <Download className="w-5 h-5 group-hover:text-amber-400 transition-all duration-300 group-hover:translate-y-1 relative z-10" />
-              <span className="relative z-10">Download CV</span>
+              <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+              <span>Get Resume</span>
             </motion.a>
           </div>
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 1, duration: 2, repeat: Infinity }}
