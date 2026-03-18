@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, Download, Sparkles, Moon, Sun } from 'lucide-react';
 import TextType from './TextType';
+import ProfileAnimation from './ProfileAnimation';
 
 interface HeroProps {
   toggleTheme?: () => void;
@@ -41,54 +42,20 @@ const Hero: React.FC<HeroProps> = ({ isDark = true, toggleTheme }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Animated Hero Image Placeholder */}
-          <div className="mb-12 relative inline-block">
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, 2, 0, -2, 0]
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="relative z-10 w-32 h-32 md:w-40 md:h-40 mx-auto"
-            >
-              {/* Outer Glow Ring */}
-              <div className={`absolute inset-0 rounded-[2rem] blur-2xl animate-pulse ${isDark ? 'bg-amber-500/30' : 'bg-amber-500/40'}`} />
-
-              {/* Main Container */}
-              <div className={`relative h-full w-full rounded-[2.5rem] border-2 flex items-center justify-center overflow-hidden backdrop-blur-sm transition-all duration-500 ${isDark ? 'bg-neutral-900/80 border-amber-500/50' : 'bg-white/80 border-amber-500/30 shadow-xl'}`}>
-                {/* Animated Gradient Background */}
-                <motion.div
-                  animate={{
-                    rotate: 360,
-                    scale: [1, 1.2, 1]
-                  }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className={`absolute inset-0 opacity-20 ${isDark ? 'bg-gradient-to-tr from-amber-600 to-transparent' : 'bg-gradient-to-tr from-amber-400 to-transparent'}`}
-                />
-
-                {/* Content Placeholder Icon */}
-                <div className="relative z-20 flex flex-col items-center gap-2">
-                  <Sparkles className={`w-10 h-10 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />
-                  <span className={`text-[10px] font-bold uppercase tracking-widest ${isDark ? 'text-amber-200/40' : 'text-amber-800/40'}`}>Profile</span>
-                </div>
-
-                {/* Corner Accents */}
-                <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-amber-500/40" />
-                <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-amber-500/40" />
-              </div>
-            </motion.div>
-
-            {/* Orbiting Elements */}
+          {/* Profile Picture Sequence Animation */}
+          <div className="mb-12 relative flex justify-center">
+            <ProfileAnimation 
+              isDark={isDark} 
+              className="w-32 h-32 md:w-56 md:h-56 relative z-10"
+            />
+            
+            {/* Orbiting Elements Accent */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 -z-10"
+              className="absolute inset-0 -z-10 w-40 h-40 md:w-64 md:h-64 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-amber-500/20 border border-amber-500/40 rounded-lg backdrop-blur-md" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-amber-500/20 border border-amber-500/40 rounded-lg backdrop-blur-md" />
             </motion.div>
           </div>
 

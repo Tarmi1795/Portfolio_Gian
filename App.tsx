@@ -57,6 +57,15 @@ const MENU_ITEMS: BubbleMenuItem[] = [
 
 function App() {
   const [isDark, setIsDark] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isDark) {
@@ -73,6 +82,45 @@ function App() {
       
       {/* Theme Toggle Button - Fixed Upper Right */}
       
+
+            {/* Floating Theme Toggle - Sticky on all sections */}
+      <motion.button
+        layout
+        onClick={toggleTheme}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ 
+          opacity: 1, 
+          x: 0,
+        }}
+        style={{
+          top: scrolled ? 'auto' : '96px',
+          bottom: scrolled ? '112px' : 'auto',
+          right: scrolled ? '40px' : '24px',
+        }}
+        transition={{ 
+          layout: { duration: 0.6, type: 'spring', stiffness: 200, damping: 25 },
+        }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className={`fixed z-[110] p-4 rounded-full shadow-2xl backdrop-blur-xl border transition-all duration-300 ${
+          isDark 
+            ? 'bg-neutral-900/90 border-neutral-800 text-yellow-400 hover:text-yellow-200 hover:shadow-yellow-500/20' 
+            : 'bg-white/90 border-neutral-200 text-amber-600 hover:text-amber-800 hover:shadow-amber-500/20'
+        }`}
+        aria-label="Toggle Theme"
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={isDark ? 'dark' : 'light'}
+            initial={{ y: -10, opacity: 0, rotate: -45 }}
+            animate={{ y: 0, opacity: 1, rotate: 0 }}
+            exit={{ y: 10, opacity: 0, rotate: 45 }}
+            transition={{ duration: 0.2 }}
+          >
+            {isDark ? <Moon className="w-6 h-6 fill-yellow-400" /> : <Sun className="w-6 h-6 fill-amber-600" />}
+          </motion.div>
+        </AnimatePresence>
+      </motion.button>
 
       <Navbar isDark={isDark} />
 
