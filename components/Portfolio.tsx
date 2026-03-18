@@ -71,10 +71,10 @@ const Portfolio: React.FC = () => {
                   {/* Video Player */}
                   {project.videoUrl && playingVideoId === project.id ? (
                     <iframe 
-                      src={project.videoUrl}
+                      src={`${project.videoUrl}${project.videoUrl.includes("?") ? "&" : "?"}autoplay=1&mute=0`}
                       className="absolute inset-0 w-full h-full z-20"
                       frameBorder="0"
-                      allow="autoplay; fullscreen"
+                      allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                       allowFullScreen
                       title={project.title}
                     />

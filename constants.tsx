@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     category: "Video Production",
     description: "A comprehensive showcase of motion graphics, cinematic editing, and AI-enhanced visual storytelling techniques.",
     imageUrl: "https://iili.io/ftJysus.png",
-    videoUrl: "https://youtu.be/zq9VvydAs10",
+    videoUrl: "https://www.youtube.com/embed/zq9VvydAs10",
     tech: ["Higgsfield Studio", "After Effects", "AI Motion"]
   },
   {
@@ -140,7 +140,7 @@ export const PROJECTS: Project[] = [
     category: "Video Production",
     description: "High-end video generation of UGC video as product review",
     imageUrl: "https://iili.io/ftdSi22.png",
-    videoUrl: "https://streamable.com/ausch4",
+    videoUrl: "https://streamable.com/e/ausch4?autoplay=1",
     tech: ["Higgsfield", "Sora", "CapCut"]
   }
 ];
