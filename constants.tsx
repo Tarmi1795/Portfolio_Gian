@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     category: "Video Production",
     description: "A comprehensive showcase of motion graphics, cinematic editing, and AI-enhanced visual storytelling techniques.",
     imageUrl: "https://iili.io/ftJysus.png",
-    videoUrl: "https://streamable.com/e/3797n2?autoplay=1",
+    videoUrl: "https://youtu.be/zq9VvydAs10",
     tech: ["Higgsfield Studio", "After Effects", "AI Motion"]
   },
   {
