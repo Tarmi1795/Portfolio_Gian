@@ -8,6 +8,7 @@ export interface Experience {
   location: string;
   period: string;
   description: string[];
+  type: 'employment' | 'freelance';
 }
 
 export interface SkillCategory {
@@ -31,4 +32,12 @@ export interface ContactInfo {
   phone: string;
   email: string;
   location: string;
+}
+
+export interface Education {
+  id: string;
+  degree: string;
+  school: string;
+  period: string;
+  note?: string;
 }

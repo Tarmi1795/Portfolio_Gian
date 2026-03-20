@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
   { name: 'Work', href: '#portfolio' },
+  { name: 'Certificates', href: '#certificates' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -52,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark = true }) => {
     setActiveSection(href.substring(1));
   };
 
-  const navBg = isDark 
+  const navBg = isDark
     ? (scrolled ? 'bg-neutral-950/80 backdrop-blur-md border-b border-white/5 shadow-lg' : 'bg-transparent')
     : (scrolled ? 'bg-white/80 backdrop-blur-md border-b border-neutral-200/50 shadow-sm' : 'bg-transparent');
 
@@ -98,11 +99,11 @@ const Navbar: React.FC<NavbarProps> = ({ isDark = true }) => {
 
                 {/* Active Indicator Dot */}
                 {isActive && (
-                   <motion.span
-                     layoutId="navActive"
-                     className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-amber-500 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.8)]"
-                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                   />
+                  <motion.span
+                    layoutId="navActive"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-amber-500 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.8)]"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
                 )}
 
                 {link.name}
@@ -115,13 +116,12 @@ const Navbar: React.FC<NavbarProps> = ({ isDark = true }) => {
             onClick={() => handleNavClick('#contact')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`ml-6 px-6 py-2.5 text-xs font-black uppercase tracking-widest rounded-full transition-all flex items-center gap-2 ${
-              isDark 
-              ? 'bg-amber-500 text-black shadow-[0_10px_20px_-5px_rgba(245,158,11,0.4)] hover:bg-amber-400' 
+            className={`ml-6 px-6 py-2.5 text-xs font-black uppercase tracking-widest rounded-full transition-all flex items-center gap-2 ${isDark
+              ? 'bg-amber-500 text-black shadow-[0_10px_20px_-5px_rgba(245,158,11,0.4)] hover:bg-amber-400'
               : 'bg-amber-600 text-white shadow-lg hover:bg-amber-500'
-            }`}
+              }`}
           >
-            Hire Me
+            Start our collaboration
           </motion.a>
         </div>
 
@@ -145,8 +145,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark = true }) => {
             className={`fixed inset-0 flex flex-col pt-24 px-8 space-y-4 h-screen z-40 transition-colors duration-500 ${isDark ? 'bg-neutral-950/98 backdrop-blur-xl' : 'bg-white/98 backdrop-blur-xl'}`}
           >
             {NAV_LINKS.map((link) => {
-               const isActive = activeSection === link.href.substring(1);
-               return (
+              const isActive = activeSection === link.href.substring(1);
+              return (
                 <a
                   key={link.name}
                   href={link.href}
@@ -155,16 +155,16 @@ const Navbar: React.FC<NavbarProps> = ({ isDark = true }) => {
                 >
                   {link.name}
                 </a>
-               );
+              );
             })}
             <div className="pt-12">
-                <a
-                  href="#contact"
-                  onClick={() => handleNavClick('#contact')}
-                  className="block w-full py-5 text-center text-lg font-black uppercase tracking-[0.2em] text-white bg-amber-600 rounded-2xl shadow-xl shadow-amber-600/20"
-                >
-                  Hire Me
-                </a>
+              <a
+                href="#contact"
+                onClick={() => handleNavClick('#contact')}
+                className="block w-full py-5 text-center text-lg font-black uppercase tracking-[0.2em] text-white bg-amber-600 rounded-2xl shadow-xl shadow-amber-600/20"
+              >
+                Start our collaboration
+              </a>
             </div>
           </motion.div>
         )}

@@ -5,9 +5,11 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
+import Certificates from './components/Certificates';
+import Education from './components/Education';
 import Contact from './components/Contact';
 import BubbleMenu, { BubbleMenuItem } from './components/BubbleMenu';
-import { Home, User, Brain, Briefcase, Image as ImageIcon, Mail, Sun, Moon } from 'lucide-react';
+import { Home, User, Brain, Briefcase, Image as ImageIcon, Award, Mail, Sun, Moon, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MENU_ITEMS: BubbleMenuItem[] = [
@@ -44,6 +46,20 @@ const MENU_ITEMS: BubbleMenuItem[] = [
     href: '#portfolio',
     rotation: 198,
     icon: <ImageIcon className="w-5 h-5" />,
+    hoverStyles: { bgColor: '#f59e0b', textColor: '#000' }
+  },
+  {
+    label: 'Certs',
+    href: '#certificates',
+    rotation: 189,
+    icon: <Award className="w-5 h-5" />,
+    hoverStyles: { bgColor: '#f59e0b', textColor: '#000' }
+  },
+  {
+    label: 'Edu',
+    href: '#education',
+    rotation: 184,
+    icon: <GraduationCap className="w-5 h-5" />,
     hoverStyles: { bgColor: '#f59e0b', textColor: '#000' }
   },
   {
@@ -140,6 +156,8 @@ function App() {
         <Skills isDark={isDark} />
         <Experience isDark={isDark} />
         <Portfolio isDark={isDark} />
+        <Certificates isDark={isDark} />
+        <Education isDark={isDark} />
         <Contact isDark={isDark} />
       </main>
     </div>

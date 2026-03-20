@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Experience, SkillCategory, Project, ContactInfo } from './types';
-import { Orbit, Spline, Workflow, Boxes, Command, Shapes, Cpu, Sparkles, Activity } from 'lucide-react';
+import { Experience, SkillCategory, Project, ContactInfo, Education } from './types';
+import { Orbit, Spline, Workflow, Boxes, Command, Shapes, Cpu, Sparkles, Activity, Code2 } from 'lucide-react';
 
 export const CONTACT_INFO: ContactInfo = {
   phone: "+974 5585 5221",
@@ -9,41 +9,138 @@ export const CONTACT_INFO: ContactInfo = {
   location: "Doha, Qatar"
 };
 
-export const EXPERIENCES: Experience[] = [
+export const EDUCATION: Education[] = [
   {
-    id: "freelance-ai",
-    company: "Freelance",
-    role: "Gen AI: Full Stack Engineer",
+    id: "uni-manila",
+    degree: "B.S. in Financial Accounting",
+    school: "University of Manila",
+    period: "2013 – 2017",
+    note: "Total 191 units"
+  },
+  {
+    id: "feu",
+    degree: "Hotel and Restaurant Management",
+    school: "Far Eastern University",
+    period: "2012 – 2013"
+  },
+  {
+    id: "palawan-state",
+    degree: "Secondary Education",
+    school: "Palawan State University",
+    period: "2007 – 2011"
+  },
+  {
+    id: "rizal-central",
+    degree: "Primary Education",
+    school: "Rizal Central School",
+    period: "2001 – 2006"
+  }
+];
+
+export const EXPERIENCES: Experience[] = [
+  // ─── Employment History ───
+  {
+    id: "applus-velosi",
+    company: "Applus+ Velosi",
+    role: "Revenue Senior Accountant",
     location: "Doha, Qatar",
-    period: "2025 – Present",
+    period: "April 2025 – Present",
+    type: "employment",
     description: [
-      "Architected React/Supabase apps using AI to accelerate dev cycles and deliver high-performance, user-centric interfaces.",
-      "Engineered AI-powered tools for automated document parsing and data extraction to streamline complex business workflows.",
-      "Developed robust APIs to integrate LLMs into full-stack systems, optimizing performance and scalable app delivery."
+      "Manage billing to clients with more than 1,000 transactions per month.",
+      "Engineered and deployed custom AI-powered parser tools to automate data extraction from disparate documents, significantly reducing manual entry errors and accelerating the revenue reconciliation process.",
+      "Acting as the primary liaison between the finance department and the development team to translate complex billing requirements into functional software features.",
+      "Overseeing high-volume revenue recognition and financial reporting, ensuring compliance with international accounting standards and internal controls."
     ]
   },
   {
-    id: "applus",
-    company: "Applus+",
-    role: "Admin Coordinator / Creative (Internal)",
+    id: "horizon-arabia",
+    company: "Horizon Arabia Group",
+    role: "General Chief Accountant",
     location: "Doha, Qatar",
-    period: "2024 – Present",
+    period: "January 2022 – April 2025",
+    type: "employment",
     description: [
-      "Managing complex revenue data and translating internal compliance modules into digestible visual training materials.",
-      "Acting as 'Billing Expert' for AMIS 2.0, overseeing visual UI/UX feedback and data flow representation.",
-      "Integrating AI-driven tools to automate reporting visualizations for Finance System Solutions (FSS)."
+      "Managed the full-cycle accounting and financial reporting for three distinct sub-companies under a single parent corporation in the construction sector.",
+      "Maintained three separate sets of books, ensuring accurate inter-company reconciliations and consolidated financial reporting.",
+      "Oversaw accounts payable, receivable, and project-based costing for large-scale construction ventures.",
+      "Prepared monthly financial statements and conducted variance analysis to guide executive decision-making."
+    ]
+  },
+  {
+    id: "forever-healthy",
+    company: "Forever Healthy Products Inc.",
+    role: "Cost Accountant / Admin",
+    location: "Philippines",
+    period: "July 2017 – October 2021",
+    type: "employment",
+    description: [
+      "Analyzed cost variances to identify savings opportunities, directly supporting executive-level strategic decision-making.",
+      "Maintained rigorous cost accounting records and allocated project-specific expenses across multiple departments.",
+      "Collaborated with production and logistics teams to implement cost control measures that improved overall operational margin."
+    ]
+  },
+  {
+    id: "grant-thornton",
+    company: "Punongbayan & Araullo (Grant Thornton)",
+    role: "Accounting Associate (OJT)",
+    location: "Philippines",
+    period: "Circa 2017",
+    type: "employment",
+    description: [
+      "Supported senior auditors in the execution of internal control verifications and substantive testing.",
+      "Compiled and organized financial data to support audit findings for diverse corporate clients."
+    ]
+  },
+
+  // ─── Freelance & Consultative Experience ───
+  {
+    id: "onesmartbiz",
+    company: "One Smart Biz",
+    role: "SME - Full Stack Software Engineer",
+    location: "Doha, Qatar",
+    period: "2025 – Present",
+    type: "freelance",
+    description: [
+      "Architecting React applications integrated with LLMs to deliver high-performance, user-centric business tools.",
+      "Building AI-powered SaaS solutions for automated document parsing, enabling businesses to convert unstructured data into structured invoices seamlessly.",
+      "Delivers Full Stack Apps to customers."
+    ]
+  },
+  {
+    id: "pearl-dermatology",
+    company: "The Pearl Dermatology & Laser Center",
+    role: "Financial Accountant",
+    location: "Doha, Qatar",
+    period: "July 2023 – 2024",
+    type: "freelance",
+    description: [
+      "Streamlined departmental workflows by optimizing the existing ERP system, reducing month-end closing time.",
+      "Prepared comprehensive financial statements, including P&L and Cash Flow, while resolving complex discrepancies alongside external auditors."
     ]
   },
   {
     id: "gulf-design",
-    company: "Gulf Design Freelance",
+    company: "Gulf Design",
     role: "Graphic Designer",
     location: "Doha, Qatar",
     period: "2022 – 2024",
+    type: "freelance",
     description: [
-      "Creative direction for SME-focused marketing campaigns across Qatar.",
-      "Developed a library of 100+ infographics for industrial and financial clients, simplifying technical data.",
-      "Pioneered the use of Midjourney and Flux within the agency to reduce conceptualization time by 40%."
+      "Pioneered the integration of generative AI (Midjourney/Flux) within the agency, reducing creative conceptualization time by 40%.",
+      "Developed a library of over 100 technical infographics for industrial and financial clients to simplify complex data sets."
+    ]
+  },
+  {
+    id: "al-waad",
+    company: "Al Waad Manufacturing & Packaging Co.",
+    role: "Accountant / HR",
+    location: "Doha, Qatar",
+    period: "January 2022 – 2024 (Project-Based)",
+    type: "freelance",
+    description: [
+      "Managed end-to-end financial operations, including payroll for a diverse workforce, bank reconciliations, and cash flow monitoring.",
+      "Coordinated with external tax preparers to ensure full compliance with Qatar's regulatory environment."
     ]
   },
   {
@@ -52,41 +149,34 @@ export const EXPERIENCES: Experience[] = [
     role: "Multimedia & Social Media Manager",
     location: "Doha, Qatar",
     period: "2020 – 2022",
+    type: "freelance",
     description: [
-      "Produced high-quality video content for social media platforms using Premiere Pro and CapCut.",
-      "Collaborated with the team to create bilingual (English/Tagalog) promotional materials.",
-      "Managed end-to-end production for corporate event coverage and digital advertisements."
-    ]
-  },
-  {
-    id: "forever-healthy",
-    company: "Forever Healthy Inc.",
-    role: "Admin Assistant",
-    location: "Manila, Philippines",
-    period: "2017 – 2020",
-    description: [
-      "Produced high-quality video content for social media using Premiere Pro.",
-      "Created bilingual promotional materials in collaboration with marketing teams.",
-      "Handled production for corporate event coverage."
+      "Produced bilingual promotional video content using Premiere Pro and CapCut, specifically targeting the Filipino and expat communities in Doha.",
+      "Managed end-to-end digital production for corporate events and social advertisements."
     ]
   }
 ];
 
 export const SKILLS: SkillCategory[] = [
   {
-    title: "AI Generation",
-    skills: ["Sora", "VEO", "Gemini Pro", "Midjourney", "Flux", "GPT Image 1.5", "Nano Banana", "Higgsfield"],
+    title: "Gen AI Expert",
+    skills: ["100+ LLM models", "Sora", "VEO", "Midjourney", "GPT Image 1.5", "Nano Banana", "Higgsfield"],
     icon: <Orbit className="w-8 h-8 text-amber-400 animate-[spin_10s_linear_infinite]" />
   },
   {
     title: "Creative Suite",
-    skills: ["Photoshop", "Premiere Pro", "CapCut", "Illustrator", "After Effects", "Web Layout Design"],
+    skills: ["Photoshop", "Premiere Pro", "CapCut", "Canva", "Web Layout Design"],
     icon: <Spline className="w-8 h-8 text-amber-500" />
   },
   {
-    title: "Data & Workflow",
-    skills: ["Data Visualization", "Financial Infographics", "Google Flow", "Python Automation", "Advanced Excel"],
+    title: "Finance & data",
+    skills: ["Data Visualization", "Financial Infographics", "Microsoft Office Suite", "Power BI", "Python Automation", "Advanced Excel", "SAP", "Oracle", "QuickBooks", "Odoo", "Xero"],
     icon: <Command className="w-8 h-8 text-yellow-500" />
+  },
+  {
+    title: "Development",
+    skills: ["Python", "ReactJS", "TypeScript", "PostgreSQL", "Google Cloud", "Google Antigravity", "Supabase", "Vercel"],
+    icon: <Code2 className="w-8 h-8 text-amber-400" />
   }
 ];
 
