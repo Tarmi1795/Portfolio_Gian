@@ -68,20 +68,18 @@ const About: React.FC<AboutProps> = ({ isDark = true }) => {
             <h2 className={`text-5xl font-bold mb-8 tracking-tighter ${headingColor}`}>About Me</h2>
 
             <p className={`text-lg leading-relaxed mb-6 font-light ${textColor}`}>
-              A results-driven <strong className="text-amber-500">Polymath and Multimedia Specialist</strong> with over 8 years of professional experience in the Qatar market and Philippines.
+              A versatile <strong className="text-amber-500">Senior Accountant, Full-Stack Developer, Multi-Media Designer</strong> with nearly a decade of experience <span className="text-amber-500 font-medium">bridging the gap between financial precision and technical innovation</span>.
             </p>
-
             <p className={`text-lg leading-relaxed mb-6 font-light ${textColor}`}>
-              I possess unique expertise in blending traditional graphic design (Adobe Suite) with advanced Generative AI workflows including <span className="text-amber-500 font-medium">Sora, Flux, and Midjourney</span>.
+              A polymath that specializes in transforming traditional accounting workflows through <span className="text-amber-500 font-medium">AI-driven automation, custom software development</span>, and strategic finance management.
             </p>
-
             <p className={`text-lg leading-relaxed font-light ${textColor}`}>
-              Proven track record of translating complex data into compelling infographics and visual stories. Highly adaptable, disciplined in remote environments, and committed to delivering high-fidelity assets that align with business objectives.
+              Deep knowledge on Top ERP software, Currently spearheading complex system migrations and developing <span className="text-amber-500 font-medium">proprietary AI tools to optimize multi-million-dollar revenue cycles</span> in the energy and infrastructure sectors.
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className={`p-6 rounded-2xl border transition-all duration-500 ${isDark ? 'bg-neutral-900/50 border-neutral-800 hover:border-amber-500/50' : 'bg-white border-neutral-100 shadow-sm hover:border-amber-500/50'}`}>
-                <h3 className={`text-3xl font-bold mb-1 ${headingColor}`}>8+</h3>
+                <h3 className={`text-3xl font-bold mb-1 ${headingColor}`}>9+</h3>
                 <p className="text-neutral-500 text-xs uppercase tracking-widest font-bold">Years Experience</p>
               </div>
               <div className={`p-6 rounded-2xl border transition-all duration-500 ${isDark ? 'bg-neutral-900/50 border-neutral-800 hover:border-amber-500/50' : 'bg-white border-neutral-100 shadow-sm hover:border-amber-500/50'}`}>
